@@ -2,7 +2,7 @@
 //  ByteArrayCollection.swift
 //  CryptoPals
 //
-//  Created by Oliver Donald on 26/07/2022.
+//  Created by olid on 26/07/2022.
 //
 
 import Foundation

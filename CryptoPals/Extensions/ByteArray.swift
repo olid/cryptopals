@@ -2,7 +2,7 @@
 //  ByteArrat.swift
 //  CryptoPals
 //
-//  Created by Oliver Donald on 25/07/2022.
+//  Created by olid on 25/07/2022.
 //
 
 import Foundation
@@ -12,6 +12,7 @@ typealias ByteArray = [Byte]
 
 extension Byte {
     var toHex: String { String(format: "%02x", self) }
+    var toBinary: String { String(self, radix: 2) }
 }
 
 extension ByteArray {

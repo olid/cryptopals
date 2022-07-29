@@ -2,7 +2,7 @@
 //  RoundKey.swift
 //  CryptoPals
 //
-//  Created by Oliver Donald on 27/07/2022.
+//  Created by olid on 27/07/2022.
 //
 
 import Foundation
@@ -58,14 +58,19 @@ struct RoundKey: CustomStringConvertible, Equatable {
             w5.0, w5.1, w5.2, w5.3,
             w6.0, w6.1, w6.2, w6.3,
             w7.0, w7.1, w7.2, w7.3])
-    }
-    
-    private func g(w: Quad, round: Int) -> Quad {
-        return (_sBox[Int(w.1)] ^ rci[round], _sBox[Int(w.2)], _sBox[Int(w.3)], _sBox[Int(w.0)])
+        
+        func g(w: Quad, round: Int) -> Quad {
+            return (_sBox[Int(w.1)] ^ rci[round], _sBox[Int(w.2)], _sBox[Int(w.3)], _sBox[Int(w.0)])
+        }
     }
     
     var toState: AesState {
-        AesState(byteArray: [a00, a01, a02, a03, a10, a11, a12, a13, a20, a21, a22, a23, a30, a31, a32, a33])
+        AesState(
+            a00, a10, a20, a30,
+            a01, a11, a21, a31,
+            a02, a12, a22, a32,
+            a03, a13, a23, a33
+        )
     }
     
     var description: String {
