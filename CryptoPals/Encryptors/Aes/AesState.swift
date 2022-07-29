@@ -46,11 +46,10 @@ struct AesState: CustomStringConvertible, Equatable {
         a33 = byteArray[15]
     }
     
-    func applyRound(key: AesState) -> AesState {
-        return self.substitute()
-            .shiftRows()
-            .mixColumn()
-            .add(key: key)
+    func applyRound(key: AesState, roundNumber: Int) -> AesState {
+        return roundNumber != 10
+            ? self.substitute().shiftRows().mixColumn().add(key: key)
+            : self.substitute().shiftRows().add(key: key)
     }
     
     func add(key: AesState) -> AesState {

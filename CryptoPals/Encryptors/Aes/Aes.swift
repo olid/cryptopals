@@ -15,7 +15,7 @@ struct Aes {
         
         let round0State = state.add(key: keys[0])
         
-        let done = round0State.applyRound(key: keys[1])
+        let done = round0State.applyRound(key: keys[1], roundNumber: 1)
                 
         return []
     }
