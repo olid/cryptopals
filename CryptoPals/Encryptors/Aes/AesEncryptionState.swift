@@ -9,7 +9,7 @@ import Foundation
 
 private typealias Quad = (Byte, Byte, Byte, Byte)
 
-struct AesState: CustomStringConvertible, Equatable {
+struct AesEncryptionState: CustomStringConvertible, Equatable {
     let a00, a01, a02, a03: Byte
     let a10, a11, a12, a13: Byte
     let a20, a21, a22, a23: Byte
@@ -46,14 +46,14 @@ struct AesState: CustomStringConvertible, Equatable {
         a33 = byteArray[15]
     }
     
-    func applyRound(key: AesState, roundNumber: Int) -> AesState {
+    func applyRound(key: AesEncryptionState, roundNumber: Int) -> AesEncryptionState {
         return roundNumber != 10
-            ? self.substitute().shiftRows().mixColumn().add(key: key)
-            : self.substitute().shiftRows().add(key: key)
+            ? self.substitute().shiftRows().mixColumn().apply(key: key)
+            : self.substitute().shiftRows().apply(key: key)
     }
     
-    func add(key: AesState) -> AesState {
-        return AesState(
+    func apply(key: AesEncryptionState) -> AesEncryptionState {
+        return AesEncryptionState(
             a00 ^ key.a00, a01 ^ key.a01, a02 ^ key.a02, a03 ^ key.a03,
             a10 ^ key.a10, a11 ^ key.a11, a12 ^ key.a12, a13 ^ key.a13,
             a20 ^ key.a20, a21 ^ key.a21, a22 ^ key.a22, a23 ^ key.a23,
@@ -61,8 +61,8 @@ struct AesState: CustomStringConvertible, Equatable {
         )
     }
     
-    func substitute() -> AesState {
-        return AesState(
+    func substitute() -> AesEncryptionState {
+        return AesEncryptionState(
             _sBox[Int(a00)], _sBox[Int(a01)], _sBox[Int(a02)], _sBox[Int(a03)],
             _sBox[Int(a10)], _sBox[Int(a11)], _sBox[Int(a12)], _sBox[Int(a13)],
             _sBox[Int(a20)], _sBox[Int(a21)], _sBox[Int(a22)], _sBox[Int(a23)],
@@ -70,8 +70,8 @@ struct AesState: CustomStringConvertible, Equatable {
         )
     }
     
-    func shiftRows() -> AesState {
-        return AesState(
+    func shiftRows() -> AesEncryptionState {
+        return AesEncryptionState(
             a00, a01, a02, a03,
             a11, a12, a13, a10,
             a22, a23, a20, a21,
@@ -79,13 +79,13 @@ struct AesState: CustomStringConvertible, Equatable {
         )
     }
     
-    func mixColumn() -> AesState {
+    func mixColumn() -> AesEncryptionState {
         let a = gQuad(quad: (a00, a10, a20, a30))
         let b = gQuad(quad: (a01, a11, a21, a31))
         let c = gQuad(quad: (a02, a12, a22, a32))
         let d = gQuad(quad: (a03, a13, a23, a33))
         
-        return AesState(
+        return AesEncryptionState(
             a.0, b.0, c.0, d.0,
             a.1, b.1, c.1, d.1,
             a.2, b.2, c.2, d.2,

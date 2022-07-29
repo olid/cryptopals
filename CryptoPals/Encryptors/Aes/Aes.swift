@@ -13,14 +13,29 @@ import Foundation
 // Mix columns algo: https://en.wikipedia.org/wiki/Rijndael_MixColumns
 
 struct Aes {
-    static func decrypt(input: ByteArray, key: ByteArray) -> ByteArray {
-        let state = AesState(byteArray: input)
+    static func encrypt(input: ByteArray, key: ByteArray) -> ByteArray {
+        let state = AesEncryptionState(byteArray: input)
         let keys = RoundKey(byteArray: key)
             .buildKeys()
-            .map { key in key.toState }
+            .map { key in key.toEncryptionState }
         
         return (1...10)
-            .reduce(state.add(key: keys[0])) { state, round in state.applyRound(key: keys[round], roundNumber: round) }
+            .reduce(state.apply(key: keys[0])) { state, round in state.applyRound(key: keys[round], roundNumber: round) }
+            .bytes
+    }
+    
+    static func decrypt(input: ByteArray, key: ByteArray) -> ByteArray {
+        let state = AesDecryptionState(byteArray: input)
+        let keys = RoundKey(byteArray: key)
+            .buildKeys()
+            .map { key in key.toDecryptionState }
+            .reversed()
+
+        let x = Array(keys)
+        
+        return (0...9)
+            .reduce(state) { state, round in state.applyRound(key: x[round], roundNumber: round) }
+            .apply(key: x[9])
             .bytes
     }
 }

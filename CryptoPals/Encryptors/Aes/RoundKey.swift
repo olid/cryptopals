@@ -64,8 +64,17 @@ struct RoundKey: CustomStringConvertible, Equatable {
         }
     }
     
-    var toState: AesState {
-        AesState(
+    var toEncryptionState: AesEncryptionState {
+        AesEncryptionState(
+            a00, a10, a20, a30,
+            a01, a11, a21, a31,
+            a02, a12, a22, a32,
+            a03, a13, a23, a33
+        )
+    }
+    
+    var toDecryptionState: AesDecryptionState {
+        AesDecryptionState(
             a00, a10, a20, a30,
             a01, a11, a21, a31,
             a02, a12, a22, a32,
