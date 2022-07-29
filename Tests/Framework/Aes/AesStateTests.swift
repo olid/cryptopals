@@ -1,0 +1,30 @@
+//
+//  AesStateTests.swift
+//  Tests
+//
+//  Created by Oliver Donald on 27/07/2022.
+//
+
+import XCTest
+
+final class AesStateTests: XCTestCase {
+    func testAddRoundKey() throws {
+        let state = AesState(byteArray: "Two One Nine Two".utf8Bytes)
+        let roundkey = AesState(byteArray: "Thats my Kung Fu".utf8Bytes)
+        
+        let result = state.add(key: roundkey)
+        
+        XCTAssertEqual(result, AesState(byteArray: [0x00, 0x3c, 0x6e, 0x47, 0x1f, 0x4e, 0x22, 0x74, 0x0e, 0x08, 0x1b, 0x31, 0x54, 0x59, 0x0b, 0x1a]))
+    }
+    
+    func testSubstitute() throws {
+        let state = AesState(byteArray: [0x00, 0x1f, 0x0e, 0x54, 0x3c, 0x4e, 0x08, 0x59, 0x6e, 0x22, 0x1b, 0x0b, 0x47, 0x74, 0x31, 0x1a])
+        let subsituted = state.substitute()
+        
+        XCTAssertEqual(subsituted, AesState(byteArray: [0x63, 0xc0, 0xab, 0x20, 0xeb, 0x2f, 0x30, 0xcb, 0x9f, 0x93, 0xaf, 0x2b, 0xa0, 0x92, 0xc7, 0xa2]))
+    }
+}
+
+
+
+
