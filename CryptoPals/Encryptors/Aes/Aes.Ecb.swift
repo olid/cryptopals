@@ -25,13 +25,14 @@ extension Aes {
                 .buildKeys()
                 .reversed())
             
-            let parts = input.chunked(by: 16).map { chunk in decryptInternal(input: chunk, keys: keys) }
-            
-            return parts.flatMap { $0 }
+            return input
+                .chunked(by: 16)
+                .map { block in decrypt(block: block, keys: keys) }
+                .flatMap { $0 }
         }
         
-        static func decryptInternal(input: ByteArray, keys: [AesKey]) -> ByteArray {
-            let state = AesDecryptionState(byteArray: input)
+        private static func decrypt(block: ByteArray, keys: [AesKey]) -> ByteArray {
+            let state = AesDecryptionState(byteArray: block)
             
             return (0...9)
                 .reduce(state) { state, round in state.applyRound(key: keys[round], roundNumber: round) }
