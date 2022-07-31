@@ -91,10 +91,6 @@ struct AesDecryptionState: CustomStringConvertible, Equatable {
     }
     
     func mixColumn() -> AesDecryptionState {
-        return self.mixColumnInner().mixColumnInner().mixColumnInner()
-    }
-    
-    func mixColumnInner() -> AesDecryptionState {
         let a = gQuad(quad: (a00, a10, a20, a30))
         let b = gQuad(quad: (a01, a11, a21, a31))
         let c = gQuad(quad: (a02, a12, a22, a32))
@@ -109,10 +105,10 @@ struct AesDecryptionState: CustomStringConvertible, Equatable {
         
         func gQuad(quad: Quad) -> Quad {
             return (
-                _g2[Int(quad.0)] ^ _g3[Int(quad.1)] ^ quad.2 ^ quad.3,
-                quad.0 ^ _g2[Int(quad.1)] ^ _g3[Int(quad.2)] ^ quad.3,
-                quad.0 ^ quad.1 ^ _g2[Int(quad.2)] ^ _g3[Int(quad.3)],
-                _g3[Int(quad.0)] ^ quad.1 ^ quad.2 ^ _g2[Int(quad.3)]
+                _g14[Int(quad.0)] ^ _g11[Int(quad.1)] ^ _g13[Int(quad.2)] ^  _g9[Int(quad.3)],
+                 _g9[Int(quad.0)] ^ _g14[Int(quad.1)] ^ _g11[Int(quad.2)] ^ _g13[Int(quad.3)],
+                _g13[Int(quad.0)] ^  _g9[Int(quad.1)] ^ _g14[Int(quad.2)] ^ _g11[Int(quad.3)],
+                _g11[Int(quad.0)] ^ _g13[Int(quad.1)] ^  _g9[Int(quad.2)] ^ _g14[Int(quad.3)]
             )
         }
     }
