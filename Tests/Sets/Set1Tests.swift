@@ -31,7 +31,7 @@ final class Set1Tests: XCTestCase {
     }
     
     func testPart4() throws {
-        let candidates = _set1Challenge4.components(separatedBy: .newlines)
+        let candidates = _set1Challenge4.lines
         
         let best = candidates
             .map { candidate in XorDecryptor.decryptSingleByteKey(input: candidate.parseAsByteArray) }
@@ -66,6 +66,15 @@ final class Set1Tests: XCTestCase {
         let key = "YELLOW SUBMARINE".utf8Bytes
         
         let result = Aes.Ecb.decrypt(input: cypherText, key: key)
-        print(result.toString)
+        
+        XCTAssertTrue(result.toString.starts(with: "I'm back and I'm ringin' the bell"))
+    }
+    
+    func testPart8() throws {
+        let cypherTexts = _set1Challenge8.lines.map { line in line.parseAsByteArray }
+        
+        for x in cypherTexts {
+            print(x)
+        }
     }
 }

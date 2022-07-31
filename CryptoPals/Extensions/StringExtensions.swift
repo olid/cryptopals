@@ -19,4 +19,8 @@ extension String {
     var utf8Bytes: ByteArray {
         return Array(self.utf8)
     }
+    
+    var lines: [String] {
+        return self.components(separatedBy: .newlines)
+    }
 }

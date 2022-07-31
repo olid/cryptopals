@@ -25,6 +25,7 @@
 		B766F0B928970E6E0030B6E3 /* Aes.Ecb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766F0B728970E6E0030B6E3 /* Aes.Ecb.swift */; };
 		B766F0BB28970EFD0030B6E3 /* AesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766F0BA28970EFD0030B6E3 /* AesKey.swift */; };
 		B766F0BC28970EFD0030B6E3 /* AesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766F0BA28970EFD0030B6E3 /* AesKey.swift */; };
+		B766F0BE2897143D0030B6E3 /* Set1Challenge8.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766F0BD2897143D0030B6E3 /* Set1Challenge8.swift */; };
 		B7761BB82891D02E007E06B9 /* SBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7761BB72891D02E007E06B9 /* SBox.swift */; };
 		B7761BB92891D126007E06B9 /* SBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7761BB72891D02E007E06B9 /* SBox.swift */; };
 		B7761BBB2891D7CC007E06B9 /* AesInitialKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7761BBA2891D7CC007E06B9 /* AesInitialKey.swift */; };
@@ -97,6 +98,7 @@
 		B766F0B528970B560030B6E3 /* Set1Challenge7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set1Challenge7.swift; sourceTree = "<group>"; };
 		B766F0B728970E6E0030B6E3 /* Aes.Ecb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aes.Ecb.swift; sourceTree = "<group>"; };
 		B766F0BA28970EFD0030B6E3 /* AesKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesKey.swift; sourceTree = "<group>"; };
+		B766F0BD2897143D0030B6E3 /* Set1Challenge8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set1Challenge8.swift; sourceTree = "<group>"; };
 		B7761BB72891D02E007E06B9 /* SBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBox.swift; sourceTree = "<group>"; };
 		B7761BBA2891D7CC007E06B9 /* AesInitialKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesInitialKey.swift; sourceTree = "<group>"; };
 		B7761BC02891D92D007E06B9 /* RoundKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundKeyTests.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				B7A5E57A289088C900966FC0 /* Set1Challenge4.swift */,
 				B72649A428908F00006D3247 /* Set1Challenge6.swift */,
 				B766F0B528970B560030B6E3 /* Set1Challenge7.swift */,
+				B766F0BD2897143D0030B6E3 /* Set1Challenge8.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				B7761BBC2891D7CC007E06B9 /* AesInitialKey.swift in Sources */,
 				B7D8F214289482C0001239ED /* AesDecryptionStateTests.swift in Sources */,
 				B72649A528908F00006D3247 /* Set1Challenge6.swift in Sources */,
+				B766F0BE2897143D0030B6E3 /* Set1Challenge8.swift in Sources */,
 				B7D8F215289482E9001239ED /* AesDecryptionState.swift in Sources */,
 				B721A9882891B74E0048058C /* ByteArrayCollection.swift in Sources */,
 				B7A8DEC72891C4AC007AA756 /* AesTests.swift in Sources */,
