@@ -35,7 +35,7 @@ struct Aes {
         
         return (0...9)
             .reduce(state) { state, round in state.applyRound(key: x[round], roundNumber: round) }
-            .apply(key: x[9])
+            .apply(key: x[10])
             .bytes
     }
 }

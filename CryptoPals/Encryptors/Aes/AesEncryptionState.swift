@@ -47,9 +47,18 @@ struct AesEncryptionState: CustomStringConvertible, Equatable {
     }
     
     func applyRound(key: AesEncryptionState, roundNumber: Int) -> AesEncryptionState {
-        return roundNumber != 10
-            ? self.substitute().shiftRows().mixColumn().apply(key: key)
-            : self.substitute().shiftRows().apply(key: key)
+        if roundNumber != 10 {
+            return self
+                .substitute()
+                .shiftRows()
+                .mixColumn()
+                .apply(key: key)
+        } else {
+            return self
+                .substitute()
+                .shiftRows()
+                .apply(key: key)
+        }
     }
     
     func apply(key: AesEncryptionState) -> AesEncryptionState {

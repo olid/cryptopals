@@ -47,9 +47,20 @@ struct AesDecryptionState: CustomStringConvertible, Equatable {
     }
     
     func applyRound(key: AesDecryptionState, roundNumber: Int) -> AesDecryptionState {
-        return roundNumber == 0
-            ? self.substitute().shiftRows().apply(key: key)
-            : self.substitute().shiftRows().mixColumn().apply(key: key)
+        if roundNumber == 0 {
+            return self
+                .apply(key: key)
+                .substitute()
+                .shiftRows()
+
+        } else {
+            return self
+                .apply(key: key)
+                .mixColumn()
+                .shiftRows()
+                .substitute()
+
+        }
     }
     
     func apply(key: AesDecryptionState) -> AesDecryptionState {
@@ -80,6 +91,10 @@ struct AesDecryptionState: CustomStringConvertible, Equatable {
     }
     
     func mixColumn() -> AesDecryptionState {
+        return self.mixColumnInner().mixColumnInner().mixColumnInner()
+    }
+    
+    func mixColumnInner() -> AesDecryptionState {
         let a = gQuad(quad: (a00, a10, a20, a30))
         let b = gQuad(quad: (a01, a11, a21, a31))
         let c = gQuad(quad: (a02, a12, a22, a32))
