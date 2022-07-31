@@ -11,7 +11,7 @@ private typealias Quad = (Byte, Byte, Byte, Byte)
 
 private let rci: [Byte] = [0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36]
 
-struct RoundKey: CustomStringConvertible, Equatable {
+struct AesInitialKey: CustomStringConvertible, Equatable {
     let a00, a01, a02, a03: Byte
     let a10, a11, a12, a13: Byte
     let a20, a21, a22, a23: Byte
@@ -38,14 +38,14 @@ struct RoundKey: CustomStringConvertible, Equatable {
         a33 = byteArray[15]
     }
     
-    func buildKeys() -> [RoundKey] {
+    func buildKeys() -> [AesKey] {
         return (1...10).reduce([self]) { keys, round in
             let next = keys.last!.buildRoundKey(round: round)
             return keys + [next]
-        }
+        }.map { key in key.toKeyState }
     }
     
-    func buildRoundKey(round: Int) -> RoundKey {
+    func buildRoundKey(round: Int) -> AesInitialKey {
         let gw3 = g(w: (a30, a31, a32, a33), round: round)
         
         let w4 = (a00 ^ gw3.0, a01 ^ gw3.1, a02 ^ gw3.2, a03 ^ gw3.3)
@@ -53,7 +53,7 @@ struct RoundKey: CustomStringConvertible, Equatable {
         let w6 = (w5.0 ^ a20, w5.1 ^ a21, w5.2 ^ a22, w5.3 ^ a23)
         let w7 = (w6.0 ^ a30, w6.1 ^ a31, w6.2 ^ a32, w6.3 ^ a33)
         
-        return RoundKey(byteArray: [
+        return AesInitialKey(byteArray: [
             w4.0, w4.1, w4.2, w4.3,
             w5.0, w5.1, w5.2, w5.3,
             w6.0, w6.1, w6.2, w6.3,
@@ -64,17 +64,8 @@ struct RoundKey: CustomStringConvertible, Equatable {
         }
     }
     
-    var toEncryptionState: AesEncryptionState {
-        AesEncryptionState(
-            a00, a10, a20, a30,
-            a01, a11, a21, a31,
-            a02, a12, a22, a32,
-            a03, a13, a23, a33
-        )
-    }
-    
-    var toDecryptionState: AesDecryptionState {
-        AesDecryptionState(
+    var toKeyState: AesKey {
+        AesKey(
             a00, a10, a20, a30,
             a01, a11, a21, a31,
             a02, a12, a22, a32,

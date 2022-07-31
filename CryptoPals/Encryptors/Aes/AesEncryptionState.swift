@@ -46,7 +46,7 @@ struct AesEncryptionState: CustomStringConvertible, Equatable {
         a33 = byteArray[15]
     }
     
-    func applyRound(key: AesEncryptionState, roundNumber: Int) -> AesEncryptionState {
+    func applyRound(key: AesKey, roundNumber: Int) -> AesEncryptionState {
         if roundNumber != 10 {
             return self
                 .substitute()
@@ -61,7 +61,7 @@ struct AesEncryptionState: CustomStringConvertible, Equatable {
         }
     }
     
-    func apply(key: AesEncryptionState) -> AesEncryptionState {
+    func apply(key: AesKey) -> AesEncryptionState {
         return AesEncryptionState(
             a00 ^ key.a00, a01 ^ key.a01, a02 ^ key.a02, a03 ^ key.a03,
             a10 ^ key.a10, a11 ^ key.a11, a12 ^ key.a12, a13 ^ key.a13,

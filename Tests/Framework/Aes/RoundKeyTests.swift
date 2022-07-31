@@ -9,19 +9,19 @@ import XCTest
 
 final class RoundKeyTests: XCTestCase {
     func testKeyExpansion() throws {
-        let keys = RoundKey(byteArray: "Thats my Kung Fu".utf8Bytes).buildKeys()
+        let keys = AesInitialKey(byteArray: "Thats my Kung Fu".utf8Bytes).buildKeys()
         
-        XCTAssertEqual(keys[0].description,  "54 68 61 74 73 20 6d 79 20 4b 75 6e 67 20 46 75")
-        XCTAssertEqual(keys[1].description,  "e2 32 fc f1 91 12 91 88 b1 59 e4 e6 d6 79 a2 93")
-        XCTAssertEqual(keys[2].description,  "56 08 20 07 c7 1a b1 8f 76 43 55 69 a0 3a f7 fa")
-        XCTAssertEqual(keys[3].description,  "d2 60 0d e7 15 7a bc 68 63 39 e9 01 c3 03 1e fb")
-        XCTAssertEqual(keys[4].description,  "a1 12 02 c9 b4 68 be a1 d7 51 57 a0 14 52 49 5b")
-        XCTAssertEqual(keys[5].description,  "b1 29 3b 33 05 41 85 92 d2 10 d2 32 c6 42 9b 69")
-        XCTAssertEqual(keys[6].description,  "bd 3d c2 87 b8 7c 47 15 6a 6c 95 27 ac 2e 0e 4e")
-        XCTAssertEqual(keys[7].description,  "cc 96 ed 16 74 ea aa 03 1e 86 3f 24 b2 a8 31 6a")
-        XCTAssertEqual(keys[8].description,  "8e 51 ef 21 fa bb 45 22 e4 3d 7a 06 56 95 4b 6c")
-        XCTAssertEqual(keys[9].description,  "bf e2 bf 90 45 59 fa b2 a1 64 80 b4 f7 f1 cb d8")
-        XCTAssertEqual(keys[10].description, "28 fd de f8 6d a4 24 4a cc c0 a4 fe 3b 31 6f 26")
+        XCTAssertEqual(keys[0].description,  "54 73 20 67 68 20 4b 20 61 6d 75 46 74 79 6e 75")
+        XCTAssertEqual(keys[1].description,  "e2 91 b1 d6 32 12 59 79 fc 91 e4 a2 f1 88 e6 93")
+        XCTAssertEqual(keys[2].description,  "56 c7 76 a0 08 1a 43 3a 20 b1 55 f7 07 8f 69 fa")
+        XCTAssertEqual(keys[3].description,  "d2 15 63 c3 60 7a 39 03 0d bc e9 1e e7 68 01 fb")
+        XCTAssertEqual(keys[4].description,  "a1 b4 d7 14 12 68 51 52 02 be 57 49 c9 a1 a0 5b")
+        XCTAssertEqual(keys[5].description,  "b1 05 d2 c6 29 41 10 42 3b 85 d2 9b 33 92 32 69")
+        XCTAssertEqual(keys[6].description,  "bd b8 6a ac 3d 7c 6c 2e c2 47 95 0e 87 15 27 4e")
+        XCTAssertEqual(keys[7].description,  "cc 74 1e b2 96 ea 86 a8 ed aa 3f 31 16 03 24 6a")
+        XCTAssertEqual(keys[8].description,  "8e fa e4 56 51 bb 3d 95 ef 45 7a 4b 21 22 06 6c")
+        XCTAssertEqual(keys[9].description,  "bf 45 a1 f7 e2 59 64 f1 bf fa 80 cb 90 b2 b4 d8")
+        XCTAssertEqual(keys[10].description, "28 6d cc 3b fd a4 c0 31 de 24 a4 6f f8 4a fe 26")
     }
 }
 

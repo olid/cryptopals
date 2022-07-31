@@ -10,7 +10,7 @@ import XCTest
 final class AesEncryptionStateTests: XCTestCase {
     func testAddRoundKey() throws {
         let state = AesEncryptionState(byteArray: "Two One Nine Two".utf8Bytes)
-        let roundkey = AesEncryptionState(byteArray: "Thats my Kung Fu".utf8Bytes)
+        let roundkey = AesKeyState(byteArray: "Thats my Kung Fu".utf8Bytes)
         
         let result = state.apply(key: roundkey)
         
@@ -42,7 +42,7 @@ final class AesEncryptionStateTests: XCTestCase {
         let plainText = "Two One Nine Two".utf8Bytes
         let key = "Thats my Kung Fu".utf8Bytes
         
-        let keys = RoundKey(byteArray: key).buildKeys().map { key in key.toEncryptionState }
+        let keys = AesInitialKey(byteArray: key).buildKeys()
         let state = AesEncryptionState(byteArray: plainText).apply(key: keys[0])
         
         let rounds = (1...10).reduce([state]) {

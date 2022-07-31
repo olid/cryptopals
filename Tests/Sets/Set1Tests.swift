@@ -60,4 +60,12 @@ final class Set1Tests: XCTestCase {
         
         XCTAssertEqual(decrypted.key.toString, "Terminator X: Bring the noise")
     }
+    
+    func testPart7() throws {
+        let cypherText = _set1Challenge7.parseAsBase64String
+        let key = "YELLOW SUBMARINE".utf8Bytes
+        
+        let result = Aes.Ecb.decrypt(input: cypherText, key: key)
+        print(result.toString)
+    }
 }
