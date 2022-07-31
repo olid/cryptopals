@@ -102,24 +102,12 @@ struct AesEncryptionState: CustomStringConvertible, Equatable {
         )
         
         func gQuad(quad: Quad) -> Quad {
-            let b = (
-                g(byte: quad.0),
-                g(byte: quad.1),
-                g(byte: quad.2),
-                g(byte: quad.3)
-            )
-            
             return (
-                b.0 ^ quad.3 ^ quad.2 ^ b.1 ^ quad.1,
-                b.1 ^ quad.0 ^ quad.3 ^ b.2 ^ quad.2,
-                b.2 ^ quad.1 ^ quad.0 ^ b.3 ^ quad.3,
-                b.3 ^ quad.2 ^ quad.1 ^ b.0 ^ quad.0
+                _g2[Int(quad.0)] ^ _g3[Int(quad.1)] ^ quad.2 ^ quad.3,
+                quad.0 ^ _g2[Int(quad.1)] ^ _g3[Int(quad.2)] ^ quad.3,
+                quad.0 ^ quad.1 ^ _g2[Int(quad.2)] ^ _g3[Int(quad.3)],
+                _g3[Int(quad.0)] ^ quad.1 ^ quad.2 ^ _g2[Int(quad.3)]
             )
-        }
-        
-        func g(byte: Byte) -> Byte {
-            let h = (byte >> 7) & 0x01
-            return (byte << 1) ^ (h * 0x1b)
         }
     }
     

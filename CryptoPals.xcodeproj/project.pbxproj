@@ -38,6 +38,8 @@
 		B7A8DECA2891C937007AA756 /* AesEncryptionStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8DEC92891C937007AA756 /* AesEncryptionStateTests.swift */; };
 		B7A8DECD2891C963007AA756 /* AesEncryptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8DECC2891C963007AA756 /* AesEncryptionState.swift */; };
 		B7A8DECE2891C963007AA756 /* AesEncryptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8DECC2891C963007AA756 /* AesEncryptionState.swift */; };
+		B7ADE6152896B84E00C71F5C /* Galois.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE6142896B84E00C71F5C /* Galois.swift */; };
+		B7ADE6162896BAC300C71F5C /* Galois.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE6142896B84E00C71F5C /* Galois.swift */; };
 		B7C53BCC289095660035881F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B7C53BCB289095660035881F /* Algorithms */; };
 		B7C53BCE2890974F0035881F /* ByteArrayCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C53BCD2890974F0035881F /* ByteArrayCollectionTests.swift */; };
 		B7C53BD0289097FF0035881F /* ByteArrayCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C53BCF289097FF0035881F /* ByteArrayCollection.swift */; };
@@ -99,6 +101,7 @@
 		B7A8DEC62891C4AC007AA756 /* AesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesTests.swift; sourceTree = "<group>"; };
 		B7A8DEC92891C937007AA756 /* AesEncryptionStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesEncryptionStateTests.swift; sourceTree = "<group>"; };
 		B7A8DECC2891C963007AA756 /* AesEncryptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesEncryptionState.swift; sourceTree = "<group>"; };
+		B7ADE6142896B84E00C71F5C /* Galois.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Galois.swift; sourceTree = "<group>"; };
 		B7C53BC92890955D0035881F /* swift-algorithms */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-algorithms"; path = "/Users/oliverdonald/Library/Developer/Xcode/DerivedData/CryptoPals-gtppgzygqzhrlqcflnwkjharzhji/SourcePackages/checkouts/swift-algorithms"; sourceTree = "<absolute>"; };
 		B7C53BCD2890974F0035881F /* ByteArrayCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayCollectionTests.swift; sourceTree = "<group>"; };
 		B7C53BCF289097FF0035881F /* ByteArrayCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayCollection.swift; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 				B7D8F211289481C4001239ED /* AesDecryptionState.swift */,
 				B7761BBA2891D7CC007E06B9 /* RoundKey.swift */,
 				B7761BB72891D02E007E06B9 /* SBox.swift */,
+				B7ADE6142896B84E00C71F5C /* Galois.swift */,
 			);
 			path = Aes;
 			sourceTree = "<group>";
@@ -382,6 +386,7 @@
 				B7A8DEBE2891C098007AA756 /* Aes.swift in Sources */,
 				B7C53BD0289097FF0035881F /* ByteArrayCollection.swift in Sources */,
 				B7A8DECD2891C963007AA756 /* AesEncryptionState.swift in Sources */,
+				B7ADE6152896B84E00C71F5C /* Galois.swift in Sources */,
 				B7A8DEC12891C0E6007AA756 /* Xor.swift in Sources */,
 				B7CFD7AD288F3A5900263403 /* Histogram.swift in Sources */,
 				B791638B28948689007F4438 /* CollectionExtensions.swift in Sources */,
@@ -404,6 +409,7 @@
 				B7A8DEC72891C4AC007AA756 /* AesTests.swift in Sources */,
 				B7761BB92891D126007E06B9 /* SBox.swift in Sources */,
 				B7A8DEC52891C197007AA756 /* Aes.swift in Sources */,
+				B7ADE6162896BAC300C71F5C /* Galois.swift in Sources */,
 				B7A8DEC42891C195007AA756 /* Xor.swift in Sources */,
 				B7A8DECE2891C963007AA756 /* AesEncryptionState.swift in Sources */,
 				B7761BC12891D92D007E06B9 /* RoundKeyTests.swift in Sources */,
