@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class AesTests: XCTestCase {
+final class AesEcbTests: XCTestCase {
     func testAesEbc() throws {
         let plainText = "Two One Nine Two".utf8Bytes
         let key = "Thats my Kung Fu".utf8Bytes

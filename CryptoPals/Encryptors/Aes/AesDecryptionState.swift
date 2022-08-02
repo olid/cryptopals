@@ -52,6 +52,15 @@ struct AesDecryptionState: CustomStringConvertible, Equatable {
             : self.apply(key: key).mixColumn().shiftRows().substitute()
     }
     
+    func apply(iv: InitVector) -> AesEncryptionState {
+        return AesEncryptionState(
+            a00 ^ iv.a00, a01 ^ iv.a01, a02 ^ iv.a02, a03 ^ iv.a03,
+            a10 ^ iv.a10, a11 ^ iv.a11, a12 ^ iv.a12, a13 ^ iv.a13,
+            a20 ^ iv.a20, a21 ^ iv.a21, a22 ^ iv.a22, a23 ^ iv.a23,
+            a30 ^ iv.a30, a31 ^ iv.a31, a32 ^ iv.a32, a33 ^ iv.a33
+        )
+    }
+    
     func apply(key: AesKey) -> AesDecryptionState {
         return AesDecryptionState(
             a00 ^ key.a00, a01 ^ key.a01, a02 ^ key.a02, a03 ^ key.a03,
