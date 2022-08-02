@@ -26,6 +26,12 @@
 		B766F0BB28970EFD0030B6E3 /* AesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766F0BA28970EFD0030B6E3 /* AesKey.swift */; };
 		B766F0BC28970EFD0030B6E3 /* AesKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766F0BA28970EFD0030B6E3 /* AesKey.swift */; };
 		B766F0BE2897143D0030B6E3 /* Set1Challenge8.swift in Sources */ = {isa = PBXBuildFile; fileRef = B766F0BD2897143D0030B6E3 /* Set1Challenge8.swift */; };
+		B76B6A8028999ECA0027FC17 /* AesEcbDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B6A7F28999ECA0027FC17 /* AesEcbDetector.swift */; };
+		B76B6A812899A01F0027FC17 /* AesEcbDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B6A7F28999ECA0027FC17 /* AesEcbDetector.swift */; };
+		B76B6A832899A4DD0027FC17 /* PKCS7.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B6A822899A4DD0027FC17 /* PKCS7.swift */; };
+		B76B6A852899A56E0027FC17 /* PKCS7Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B6A842899A56E0027FC17 /* PKCS7Tests.swift */; };
+		B76B6A862899A5730027FC17 /* PKCS7.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B6A822899A4DD0027FC17 /* PKCS7.swift */; };
+		B76B6A882899A6A80027FC17 /* Set2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76B6A872899A6A80027FC17 /* Set2Tests.swift */; };
 		B7761BB82891D02E007E06B9 /* SBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7761BB72891D02E007E06B9 /* SBox.swift */; };
 		B7761BB92891D126007E06B9 /* SBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7761BB72891D02E007E06B9 /* SBox.swift */; };
 		B7761BBB2891D7CC007E06B9 /* AesInitialKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7761BBA2891D7CC007E06B9 /* AesInitialKey.swift */; };
@@ -99,6 +105,10 @@
 		B766F0B728970E6E0030B6E3 /* Aes.Ecb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aes.Ecb.swift; sourceTree = "<group>"; };
 		B766F0BA28970EFD0030B6E3 /* AesKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesKey.swift; sourceTree = "<group>"; };
 		B766F0BD2897143D0030B6E3 /* Set1Challenge8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set1Challenge8.swift; sourceTree = "<group>"; };
+		B76B6A7F28999ECA0027FC17 /* AesEcbDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesEcbDetector.swift; sourceTree = "<group>"; };
+		B76B6A822899A4DD0027FC17 /* PKCS7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCS7.swift; sourceTree = "<group>"; };
+		B76B6A842899A56E0027FC17 /* PKCS7Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKCS7Tests.swift; sourceTree = "<group>"; };
+		B76B6A872899A6A80027FC17 /* Set2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set2Tests.swift; sourceTree = "<group>"; };
 		B7761BB72891D02E007E06B9 /* SBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBox.swift; sourceTree = "<group>"; };
 		B7761BBA2891D7CC007E06B9 /* AesInitialKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesInitialKey.swift; sourceTree = "<group>"; };
 		B7761BC02891D92D007E06B9 /* RoundKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundKeyTests.swift; sourceTree = "<group>"; };
@@ -189,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				B70F76AB288F3272007E84BB /* Set1Tests.swift */,
+				B76B6A872899A6A80027FC17 /* Set2Tests.swift */,
 			);
 			path = Sets;
 			sourceTree = "<group>";
@@ -201,6 +212,7 @@
 				B70F768F288F187C007E84BB /* ByteArrayTests.swift */,
 				B70F76A8288F2235007E84BB /* Base64Tests.swift */,
 				B7A8DEC22891C167007AA756 /* XorTests.swift */,
+				B76B6A842899A56E0027FC17 /* PKCS7Tests.swift */,
 			);
 			path = Framework;
 			sourceTree = "<group>";
@@ -221,6 +233,7 @@
 			children = (
 				B7A8DECB2891C94A007AA756 /* Aes */,
 				B7A8DEC02891C0E6007AA756 /* Xor.swift */,
+				B76B6A822899A4DD0027FC17 /* PKCS7.swift */,
 			);
 			path = Encryptors;
 			sourceTree = "<group>";
@@ -285,6 +298,7 @@
 				B7CFD7A7288F382100263403 /* EnglishScorer.swift */,
 				B7CFD7AC288F3A5900263403 /* Histogram.swift */,
 				B7A5E576289087CB00966FC0 /* XorDecryptor.swift */,
+				B76B6A7F28999ECA0027FC17 /* AesEcbDetector.swift */,
 			);
 			path = Analysers;
 			sourceTree = "<group>";
@@ -394,6 +408,8 @@
 				B70F769F288F1A9C007E84BB /* StringExtensions.swift in Sources */,
 				B70F769D288F1A3C007E84BB /* ByteArray.swift in Sources */,
 				B7CFD7A6288F349200263403 /* LetterFrequencies.swift in Sources */,
+				B76B6A832899A4DD0027FC17 /* PKCS7.swift in Sources */,
+				B76B6A8028999ECA0027FC17 /* AesEcbDetector.swift in Sources */,
 				B70F7683288F1824007E84BB /* main.swift in Sources */,
 				B766F0BB28970EFD0030B6E3 /* AesKey.swift in Sources */,
 				B7761BBB2891D7CC007E06B9 /* AesInitialKey.swift in Sources */,
@@ -416,17 +432,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B70F76A9288F2235007E84BB /* Base64Tests.swift in Sources */,
+				B76B6A882899A6A80027FC17 /* Set2Tests.swift in Sources */,
 				B766F0B828970E6E0030B6E3 /* Aes.Ecb.swift in Sources */,
 				B766F0B628970B560030B6E3 /* Set1Challenge7.swift in Sources */,
 				B70F76A5288F1E34007E84BB /* StringExtensions.swift in Sources */,
 				B7761BBC2891D7CC007E06B9 /* AesInitialKey.swift in Sources */,
 				B7D8F214289482C0001239ED /* AesDecryptionStateTests.swift in Sources */,
+				B76B6A812899A01F0027FC17 /* AesEcbDetector.swift in Sources */,
 				B72649A528908F00006D3247 /* Set1Challenge6.swift in Sources */,
 				B766F0BE2897143D0030B6E3 /* Set1Challenge8.swift in Sources */,
 				B7D8F215289482E9001239ED /* AesDecryptionState.swift in Sources */,
 				B721A9882891B74E0048058C /* ByteArrayCollection.swift in Sources */,
 				B7A8DEC72891C4AC007AA756 /* AesTests.swift in Sources */,
+				B76B6A852899A56E0027FC17 /* PKCS7Tests.swift in Sources */,
 				B7761BB92891D126007E06B9 /* SBox.swift in Sources */,
+				B76B6A862899A5730027FC17 /* PKCS7.swift in Sources */,
 				B7A8DEC52891C197007AA756 /* Aes.swift in Sources */,
 				B7ADE6162896BAC300C71F5C /* Galois.swift in Sources */,
 				B7A8DEC42891C195007AA756 /* Xor.swift in Sources */,

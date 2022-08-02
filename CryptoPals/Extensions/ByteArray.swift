@@ -36,6 +36,15 @@ extension ByteArray {
         return self.map { byte in String(bytes: [byte], encoding: .utf8) ?? "" }.joined()
     }
     
+    var description: String {
+        return self.map { byte in
+            switch byte {
+                case 0...31: return "\\x\(byte.toHex)"
+                default: return String(bytes: [byte], encoding: .utf8)!
+            }
+        }.joined()
+    }
+    
     func chunked(by count: Int) -> [ByteArray] {
         return self.chunks(ofCount: count).filter { chunk in chunk.count == count }.map { chunk in Array(chunk) }
     }        

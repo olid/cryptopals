@@ -73,8 +73,8 @@ final class Set1Tests: XCTestCase {
     func testPart8() throws {
         let cypherTexts = _set1Challenge8.lines.map { line in line.parseAsByteArray }
         
-        for x in cypherTexts {
-            print(x)
-        }
+        let results = AesEcbDetector.detect(candidates: cypherTexts)
+        
+        print(results.last!.cypherText.toHexString)
     }
 }
