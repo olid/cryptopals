@@ -7,19 +7,21 @@
 
 import Foundation
 
+typealias AesRandomResult = (cypherText: ByteArray, mode: AesMode)
+
 extension Aes {
     struct Random {
-        let mode: AesMode = .random
         
-        private let key: ByteArray = .random(length: 16)
-        private let iv: ByteArray = .random(length: 16)
-        
-        func encrypt(plainText: ByteArray) -> ByteArray {
+        static func randomEcbCbcEncrypt(plainText: ByteArray) -> AesRandomResult {
+            let mode: AesMode = .random
+            let key: ByteArray = .random(length: 16)
+            let iv: ByteArray = .random(length: 16)
+            
             let padded = .random(length: .random(in: (5...10))) + plainText + .random(length: .random(in: (5...10)))
             
             switch mode {
-                case .cbc: return Aes.Cbc.encrypt(input: padded, key: key, iv: iv)
-                case .ecb: return Aes.Ecb.encrypt(input: padded, key: key)
+                case .cbc: return (cypherText: Aes.Cbc.encrypt(input: padded, key: key, iv: iv), mode: .cbc)
+                case .ecb: return (cypherText: Aes.Ecb.encrypt(input: padded, key: key), mode: .ecb)
             }
         }
     }

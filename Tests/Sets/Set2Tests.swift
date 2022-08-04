@@ -29,12 +29,10 @@ final class Set2Tests: XCTestCase {
         let plainText = "0123456789abcdef0123456789abcdef0123456789abcdef".utf8Bytes
         
         let correct = (1...10).reduce(0) { count, _ in
-            let encryptor = Aes.Random()
+            let (cypherText, actualMode) = Aes.Random.randomEcbCbcEncrypt(plainText: plainText)
+            let estimatedMode = EcbCbcOracle.detectModeFor(cypherText: cypherText)
             
-            let encrypted = encryptor.encrypt(plainText: plainText)
-            let result = EcbCbcOracle.detectModeFor(cypherText: encrypted)
-            
-            return (result == encryptor.mode) ? count + 1 : 0
+            return (estimatedMode == actualMode) ? count + 1 : 0
         }
         
         XCTAssertEqual(correct, 10)
