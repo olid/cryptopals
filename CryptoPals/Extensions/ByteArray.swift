@@ -7,13 +7,7 @@
 
 import Foundation
 
-typealias Byte = UInt8
 typealias ByteArray = [Byte]
-
-extension Byte {
-    var toHex: String { String(format: "%02x", self) }
-    var toBinary: String { String(self, radix: 2) }
-}
 
 extension ByteArray {
     static func parse(string: String) -> ByteArray {
@@ -24,6 +18,10 @@ extension ByteArray {
         return stride(from: 0, to: segments.count, by: 2).map { ix in
             UInt8(String(bytes: [segments[ix], segments[ix.advanced(by: 1)]], encoding: .utf8)!, radix: 16)!
         }
+    }
+    
+    static func random(length: Int = 16) -> ByteArray {
+        return (0..<length).map { _ in .random }
     }
     
     var toHexString: String {

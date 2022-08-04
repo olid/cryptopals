@@ -58,6 +58,14 @@
 		B7A8DECE2891C963007AA756 /* AesEncryptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8DECC2891C963007AA756 /* AesEncryptionState.swift */; };
 		B7ADE6152896B84E00C71F5C /* Galois.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE6142896B84E00C71F5C /* Galois.swift */; };
 		B7ADE6162896BAC300C71F5C /* Galois.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADE6142896B84E00C71F5C /* Galois.swift */; };
+		B7B598EC289C62DF00C49F40 /* Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B598EB289C62DF00C49F40 /* Byte.swift */; };
+		B7B598ED289C62DF00C49F40 /* Byte.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B598EB289C62DF00C49F40 /* Byte.swift */; };
+		B7B598EF289C649400C49F40 /* EcbCbcOracle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B598EE289C649400C49F40 /* EcbCbcOracle.swift */; };
+		B7B598F0289C649400C49F40 /* EcbCbcOracle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B598EE289C649400C49F40 /* EcbCbcOracle.swift */; };
+		B7B598F2289C663500C49F40 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B598F1289C663500C49F40 /* Random.swift */; };
+		B7B598F3289C663500C49F40 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B598F1289C663500C49F40 /* Random.swift */; };
+		B7B598F6289C6A4700C49F40 /* Aes.Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B598F5289C6A4700C49F40 /* Aes.Random.swift */; };
+		B7B598F7289C6A4700C49F40 /* Aes.Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B598F5289C6A4700C49F40 /* Aes.Random.swift */; };
 		B7C53BCC289095660035881F /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B7C53BCB289095660035881F /* Algorithms */; };
 		B7C53BCE2890974F0035881F /* ByteArrayCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C53BCD2890974F0035881F /* ByteArrayCollectionTests.swift */; };
 		B7C53BD0289097FF0035881F /* ByteArrayCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C53BCF289097FF0035881F /* ByteArrayCollection.swift */; };
@@ -132,6 +140,10 @@
 		B7A8DEC92891C937007AA756 /* AesEncryptionStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesEncryptionStateTests.swift; sourceTree = "<group>"; };
 		B7A8DECC2891C963007AA756 /* AesEncryptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesEncryptionState.swift; sourceTree = "<group>"; };
 		B7ADE6142896B84E00C71F5C /* Galois.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Galois.swift; sourceTree = "<group>"; };
+		B7B598EB289C62DF00C49F40 /* Byte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Byte.swift; sourceTree = "<group>"; };
+		B7B598EE289C649400C49F40 /* EcbCbcOracle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcbCbcOracle.swift; sourceTree = "<group>"; };
+		B7B598F1289C663500C49F40 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
+		B7B598F5289C6A4700C49F40 /* Aes.Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aes.Random.swift; sourceTree = "<group>"; };
 		B7C53BC92890955D0035881F /* swift-algorithms */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "swift-algorithms"; path = "/Users/oliverdonald/Library/Developer/Xcode/DerivedData/CryptoPals-gtppgzygqzhrlqcflnwkjharzhji/SourcePackages/checkouts/swift-algorithms"; sourceTree = "<absolute>"; };
 		B7C53BCD2890974F0035881F /* ByteArrayCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayCollectionTests.swift; sourceTree = "<group>"; };
 		B7C53BCF289097FF0035881F /* ByteArrayCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteArrayCollection.swift; sourceTree = "<group>"; };
@@ -265,9 +277,18 @@
 		B7A8DECB2891C94A007AA756 /* Aes */ = {
 			isa = PBXGroup;
 			children = (
+				B7B598F4289C6A0400C49F40 /* Framework */,
 				B7A8DEBD2891C098007AA756 /* Aes.swift */,
 				B766F0B728970E6E0030B6E3 /* Aes.Ecb.swift */,
 				B76B6A8A2899ABF10027FC17 /* Aes.Cbc.swift */,
+				B7B598F5289C6A4700C49F40 /* Aes.Random.swift */,
+			);
+			path = Aes;
+			sourceTree = "<group>";
+		};
+		B7B598F4289C6A0400C49F40 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
 				B7A8DECC2891C963007AA756 /* AesEncryptionState.swift */,
 				B7D8F211289481C4001239ED /* AesDecryptionState.swift */,
 				B7761BBA2891D7CC007E06B9 /* AesInitialKey.swift */,
@@ -275,7 +296,7 @@
 				B7761BB72891D02E007E06B9 /* SBox.swift */,
 				B7ADE6142896B84E00C71F5C /* Galois.swift */,
 			);
-			path = Aes;
+			path = Framework;
 			sourceTree = "<group>";
 		};
 		B7C53BC82890955D0035881F /* Frameworks */ = {
@@ -294,6 +315,8 @@
 				B70F769E288F1A9C007E84BB /* StringExtensions.swift */,
 				B7CFD7A0288F33E000263403 /* IntExtensions.swift */,
 				B70F769C288F1A3C007E84BB /* ByteArray.swift */,
+				B7B598F1289C663500C49F40 /* Random.swift */,
+				B7B598EB289C62DF00C49F40 /* Byte.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -313,6 +336,7 @@
 				B7CFD7AC288F3A5900263403 /* Histogram.swift */,
 				B7A5E576289087CB00966FC0 /* XorDecryptor.swift */,
 				B76B6A7F28999ECA0027FC17 /* AesEcbDetector.swift */,
+				B7B598EE289C649400C49F40 /* EcbCbcOracle.swift */,
 			);
 			path = Analysers;
 			sourceTree = "<group>";
@@ -427,6 +451,7 @@
 				B76B6A8028999ECA0027FC17 /* AesEcbDetector.swift in Sources */,
 				B70F7683288F1824007E84BB /* main.swift in Sources */,
 				B766F0BB28970EFD0030B6E3 /* AesKey.swift in Sources */,
+				B7B598EF289C649400C49F40 /* EcbCbcOracle.swift in Sources */,
 				B7761BBB2891D7CC007E06B9 /* AesInitialKey.swift in Sources */,
 				B7761BB82891D02E007E06B9 /* SBox.swift in Sources */,
 				B7A8DEBE2891C098007AA756 /* Aes.swift in Sources */,
@@ -435,11 +460,14 @@
 				B7ADE6152896B84E00C71F5C /* Galois.swift in Sources */,
 				B7A8DEC12891C0E6007AA756 /* Xor.swift in Sources */,
 				B7CFD7AD288F3A5900263403 /* Histogram.swift in Sources */,
+				B7B598EC289C62DF00C49F40 /* Byte.swift in Sources */,
 				B766F0B928970E6E0030B6E3 /* Aes.Ecb.swift in Sources */,
 				B791638B28948689007F4438 /* CollectionExtensions.swift in Sources */,
 				B7D8F212289481C4001239ED /* AesDecryptionState.swift in Sources */,
 				B7CFD7A8288F382100263403 /* EnglishScorer.swift in Sources */,
 				B76B6A8E2899AD020027FC17 /* Aes.Cbc.swift in Sources */,
+				B7B598F2289C663500C49F40 /* Random.swift in Sources */,
+				B7B598F6289C6A4700C49F40 /* Aes.Random.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +483,9 @@
 				B766F0B628970B560030B6E3 /* Set1Challenge7.swift in Sources */,
 				B70F76A5288F1E34007E84BB /* StringExtensions.swift in Sources */,
 				B7761BBC2891D7CC007E06B9 /* AesInitialKey.swift in Sources */,
+				B7B598F0289C649400C49F40 /* EcbCbcOracle.swift in Sources */,
 				B7D8F214289482C0001239ED /* AesDecryptionStateTests.swift in Sources */,
+				B7B598ED289C62DF00C49F40 /* Byte.swift in Sources */,
 				B76B6A812899A01F0027FC17 /* AesEcbDetector.swift in Sources */,
 				B72649A528908F00006D3247 /* Set1Challenge6.swift in Sources */,
 				B766F0BE2897143D0030B6E3 /* Set1Challenge8.swift in Sources */,
@@ -465,6 +495,7 @@
 				B76B6A852899A56E0027FC17 /* PKCS7Tests.swift in Sources */,
 				B7761BB92891D126007E06B9 /* SBox.swift in Sources */,
 				B76B6A862899A5730027FC17 /* PKCS7.swift in Sources */,
+				B7B598F3289C663500C49F40 /* Random.swift in Sources */,
 				B7A8DEC52891C197007AA756 /* Aes.swift in Sources */,
 				B7ADE6162896BAC300C71F5C /* Galois.swift in Sources */,
 				B7A8DEC42891C195007AA756 /* Xor.swift in Sources */,
@@ -478,6 +509,7 @@
 				B7A5E57B289088C900966FC0 /* Set1Challenge4.swift in Sources */,
 				B70F7690288F187C007E84BB /* ByteArrayTests.swift in Sources */,
 				B7CFD7AE288F3E1D00263403 /* Histogram.swift in Sources */,
+				B7B598F7289C6A4700C49F40 /* Aes.Random.swift in Sources */,
 				B7A5E5782890882400966FC0 /* XorDecryptor.swift in Sources */,
 				B7CFD7AB288F390100263403 /* LetterFrequencies.swift in Sources */,
 				B7CFD7AA288F38C600263403 /* EnglishScorer.swift in Sources */,

@@ -11,10 +11,11 @@ import Foundation
 extension Aes {
     struct Ecb {
         static func encrypt(input: ByteArray, key: ByteArray) -> ByteArray {
+            let paddedInput = PKCS7.pad(bytes: input)
             let keys = AesInitialKey(byteArray: key)
                 .buildKeys()
             
-            return input
+            return paddedInput
                 .chunked(by: 16)
                 .map { block in encrypt(block: block, keys: keys) }
                 .flatMap { $0 }

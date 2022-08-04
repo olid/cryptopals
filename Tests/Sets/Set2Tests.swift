@@ -24,4 +24,21 @@ final class Set2Tests: XCTestCase {
         
         XCTAssertTrue(decrypted.description.starts(with: "I'm back and I'm ringin' the bell"))
     }
+    
+    func testPart3() throws {
+        let plainText = "0123456789abcdef0123456789abcdef0123456789abcdef".utf8Bytes
+        
+        let correct = (1...10).reduce(0) { count, _ in
+            let encryptor = Aes.Random()
+            
+            let encrypted = encryptor.encrypt(plainText: plainText)
+            let result = EcbCbcOracle.detectModeFor(cypherText: encrypted)
+            
+            return (result == encryptor.mode) ? count + 1 : 0
+        }
+        
+        XCTAssertEqual(correct, 10)
+    }
 }
+
+
