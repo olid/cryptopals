@@ -20,7 +20,7 @@ final class Set2Tests: XCTestCase {
         let key = "YELLOW SUBMARINE".utf8Bytes
         let iv = ByteArray([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         
-        let decrypted = Aes.Cbc.decrypt(input: cypherText, key: key, iv: iv)
+        let decrypted = Aes.Cbc().decrypt(input: cypherText, key: key, iv: iv)
         
         XCTAssertTrue(decrypted.description.starts(with: "I'm back and I'm ringin' the bell"))
     }
@@ -36,6 +36,15 @@ final class Set2Tests: XCTestCase {
         }
         
         XCTAssertEqual(correct, 10)
+    }
+    
+    func testPart12() throws {
+        let unknownText = _set2Challenge3.parseAsBase64String
+        
+        let answer = AesEcbDecryptor(keySize: 16).decrypt(unknownText: unknownText)
+        let expected = String(format: "Rollin' in my 5.0\u{0a}With my rag-top down so my hair can blow\u{0a}The girlies on standby waving just to say hi\u{0a}Did you stop? No, I just drove by\u{0a}")
+        
+        XCTAssertEqual(answer, expected.utf8Bytes)
     }
 }
 

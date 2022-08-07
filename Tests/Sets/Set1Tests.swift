@@ -65,7 +65,7 @@ final class Set1Tests: XCTestCase {
         let cypherText = _set1Challenge7.parseAsBase64String
         let key = "YELLOW SUBMARINE".utf8Bytes
         
-        let result = Aes.Ecb.decrypt(input: cypherText, key: key)
+        let result = Aes.Ecb().decrypt(input: cypherText, key: key)
         
         XCTAssertTrue(result.toString.starts(with: "I'm back and I'm ringin' the bell"))
     }

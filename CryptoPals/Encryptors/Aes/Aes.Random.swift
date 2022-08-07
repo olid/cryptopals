@@ -20,8 +20,8 @@ extension Aes {
             let padded = .random(length: .random(in: (5...10))) + plainText + .random(length: .random(in: (5...10)))
             
             switch mode {
-                case .cbc: return (cypherText: Aes.Cbc.encrypt(input: padded, key: key, iv: iv), mode: .cbc)
-                case .ecb: return (cypherText: Aes.Ecb.encrypt(input: padded, key: key), mode: .ecb)
+                case .cbc: return (cypherText: Aes.Cbc().encrypt(input: padded, key: key, iv: iv), mode: .cbc)
+                case .ecb: return (cypherText: Aes.Ecb().encrypt(input: padded, key: key), mode: .ecb)
             }
         }
     }

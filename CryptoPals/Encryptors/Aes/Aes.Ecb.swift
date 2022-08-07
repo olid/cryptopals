@@ -10,7 +10,7 @@ import Foundation
 
 extension Aes {
     struct Ecb {
-        static func encrypt(input: ByteArray, key: ByteArray) -> ByteArray {
+        func encrypt(input: ByteArray, key: ByteArray) -> ByteArray {
             let paddedInput = PKCS7.pad(bytes: input)
             let keys = AesInitialKey(byteArray: key)
                 .buildKeys()
@@ -21,7 +21,7 @@ extension Aes {
                 .flatMap { $0 }
         }
         
-        private static func encrypt(block: ByteArray, keys: [AesKey]) -> ByteArray {
+        private func encrypt(block: ByteArray, keys: [AesKey]) -> ByteArray {
             let state = AesEncryptionState(byteArray: block)
             
             return (1...10)
@@ -29,7 +29,7 @@ extension Aes {
                 .bytes
         }
         
-        static func decrypt(input: ByteArray, key: ByteArray) -> ByteArray {
+        func decrypt(input: ByteArray, key: ByteArray) -> ByteArray {
             let keys = Array(AesInitialKey(byteArray: key)
                 .buildKeys()
                 .reversed())
@@ -40,7 +40,7 @@ extension Aes {
                 .flatMap { $0 }
         }
         
-        private static func decrypt(block: ByteArray, keys: [AesKey]) -> ByteArray {
+        private func decrypt(block: ByteArray, keys: [AesKey]) -> ByteArray {
             let state = AesDecryptionState(byteArray: block)
             
             return (0...9)
