@@ -75,6 +75,6 @@ final class Set1Tests: XCTestCase {
         
         let results = AesEcbDetector.detect(candidates: cypherTexts)
         
-        print(results.last!.cypherText.toHexString)
+        XCTAssertTrue(results.last!.cypherText.toHexString.starts(with: "d880619740a8a19b7840a8a31"))
     }
 }
