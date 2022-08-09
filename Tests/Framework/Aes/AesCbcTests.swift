@@ -15,7 +15,7 @@ final class AesCbcTests: XCTestCase {
         let encrypted = Aes.Cbc().encrypt(input: plainText, key: key, iv: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         let decrypted = Aes.Cbc().decrypt(input: encrypted, key: key, iv: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         
-        XCTAssertEqual(decrypted, plainText + [0x1])
+        XCTAssertEqual(decrypted, plainText)
     }
 }
 

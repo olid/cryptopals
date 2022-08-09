@@ -80,6 +80,9 @@
 		B7CFD7AD288F3A5900263403 /* Histogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CFD7AC288F3A5900263403 /* Histogram.swift */; };
 		B7CFD7AE288F3E1D00263403 /* Histogram.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CFD7AC288F3A5900263403 /* Histogram.swift */; };
 		B7D3E05828A0508200E20B9A /* Set2Challenge3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D3E05728A0508200E20B9A /* Set2Challenge3.swift */; };
+		B7D3E05A28A056B900E20B9A /* CookieHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D3E05928A056B900E20B9A /* CookieHelpers.swift */; };
+		B7D3E05B28A056B900E20B9A /* CookieHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D3E05928A056B900E20B9A /* CookieHelpers.swift */; };
+		B7D3E05F28A057E400E20B9A /* CookieHelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D3E05E28A057E400E20B9A /* CookieHelpersTests.swift */; };
 		B7D8F212289481C4001239ED /* AesDecryptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D8F211289481C4001239ED /* AesDecryptionState.swift */; };
 		B7D8F214289482C0001239ED /* AesDecryptionStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D8F213289482C0001239ED /* AesDecryptionStateTests.swift */; };
 		B7D8F215289482E9001239ED /* AesDecryptionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D8F211289481C4001239ED /* AesDecryptionState.swift */; };
@@ -156,6 +159,8 @@
 		B7CFD7A7288F382100263403 /* EnglishScorer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishScorer.swift; sourceTree = "<group>"; };
 		B7CFD7AC288F3A5900263403 /* Histogram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Histogram.swift; sourceTree = "<group>"; };
 		B7D3E05728A0508200E20B9A /* Set2Challenge3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Set2Challenge3.swift; sourceTree = "<group>"; };
+		B7D3E05928A056B900E20B9A /* CookieHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieHelpers.swift; sourceTree = "<group>"; };
+		B7D3E05E28A057E400E20B9A /* CookieHelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieHelpersTests.swift; sourceTree = "<group>"; };
 		B7D8F211289481C4001239ED /* AesDecryptionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesDecryptionState.swift; sourceTree = "<group>"; };
 		B7D8F213289482C0001239ED /* AesDecryptionStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AesDecryptionStateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +241,7 @@
 			children = (
 				B7A8DEC82891C91D007AA756 /* Aes */,
 				B7C53BCD2890974F0035881F /* ByteArrayCollectionTests.swift */,
+				B7D3E05E28A057E400E20B9A /* CookieHelpersTests.swift */,
 				B70F768F288F187C007E84BB /* ByteArrayTests.swift */,
 				B70F76A8288F2235007E84BB /* Base64Tests.swift */,
 				B7A8DEC22891C167007AA756 /* XorTests.swift */,
@@ -344,6 +350,7 @@
 				B7CFD7AC288F3A5900263403 /* Histogram.swift */,
 				B76B6A7F28999ECA0027FC17 /* AesEcbDetector.swift */,
 				B7B598EE289C649400C49F40 /* EcbCbcOracle.swift */,
+				B7D3E05928A056B900E20B9A /* CookieHelpers.swift */,
 			);
 			path = Analysers;
 			sourceTree = "<group>";
@@ -465,6 +472,7 @@
 				B7C53BD0289097FF0035881F /* ByteArrayCollection.swift in Sources */,
 				B7B598F9289C6C5C00C49F40 /* AesEcbDecryptor.swift in Sources */,
 				B7A8DECD2891C963007AA756 /* AesEncryptionState.swift in Sources */,
+				B7D3E05A28A056B900E20B9A /* CookieHelpers.swift in Sources */,
 				B7ADE6152896B84E00C71F5C /* Galois.swift in Sources */,
 				B7A8DEC12891C0E6007AA756 /* Xor.swift in Sources */,
 				B7CFD7AD288F3A5900263403 /* Histogram.swift in Sources */,
@@ -491,6 +499,7 @@
 				B76B6A932899B5F20027FC17 /* Set2Challenge2.swift in Sources */,
 				B766F0B828970E6E0030B6E3 /* Aes.Ecb.swift in Sources */,
 				B766F0B628970B560030B6E3 /* Set1Challenge7.swift in Sources */,
+				B7D3E05F28A057E400E20B9A /* CookieHelpersTests.swift in Sources */,
 				B70F76A5288F1E34007E84BB /* StringExtensions.swift in Sources */,
 				B7761BBC2891D7CC007E06B9 /* AesInitialKey.swift in Sources */,
 				B7B598F0289C649400C49F40 /* EcbCbcOracle.swift in Sources */,
@@ -513,6 +522,7 @@
 				B7A8DECE2891C963007AA756 /* AesEncryptionState.swift in Sources */,
 				B7761BC12891D92D007E06B9 /* RoundKeyTests.swift in Sources */,
 				B7CFD7A2288F345100263403 /* IntExtensions.swift in Sources */,
+				B7D3E05B28A056B900E20B9A /* CookieHelpers.swift in Sources */,
 				B766F0BC28970EFD0030B6E3 /* AesKey.swift in Sources */,
 				B7A8DEC32891C167007AA756 /* XorTests.swift in Sources */,
 				B76B6A912899B0500027FC17 /* AesCbcTests.swift in Sources */,

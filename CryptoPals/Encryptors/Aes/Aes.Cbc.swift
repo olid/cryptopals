@@ -29,11 +29,11 @@ private struct DecryptionState {
 extension Aes {
     struct Cbc {
         func encrypt(input: ByteArray, key: ByteArray, iv: ByteArray) -> ByteArray {
-            let paddedInput = PKCS7.pad(bytes: input)
             let keys = AesInitialKey(byteArray: key)
                 .buildKeys()
             
-            return paddedInput
+            return input
+                .padded()
                 .chunked(by: 16)
                 .reduce(ByteArrayCollection()) { encryptedBlocks, block in
                     let iv = InitVector(byteArray: encryptedBlocks.last ?? iv)
@@ -42,21 +42,12 @@ extension Aes {
                 .flatMap { $0 }
         }
         
-        private func encrypt(block: ByteArray, keys: [AesKey], iv: InitVector) -> ByteArray {
-            let state = AesEncryptionState(byteArray: block).apply(iv: iv)
-            
-            return (1...10)
-                .reduce(state.apply(key: keys[0])) { state, round in state.applyRound(key: keys[round], roundNumber: round) }
-                .bytes
-        }
-        
         func decrypt(input: ByteArray, key: ByteArray, iv: ByteArray) -> ByteArray {
-            let paddedInput = PKCS7.pad(bytes: input)
             let keys = Array(AesInitialKey(byteArray: key)
                 .buildKeys()
                 .reversed())
             
-            return paddedInput
+            return input
                 .chunked(by: 16)
                 .reduce(DecryptionState()) { state, block in
                     let iv = InitVector(byteArray: state.lastBlock ?? iv)
@@ -64,6 +55,15 @@ extension Aes {
                 }
                 .decryptedBlocks
                 .flatMap { $0 }
+                .unpadded()
+        }
+        
+        private func encrypt(block: ByteArray, keys: [AesKey], iv: InitVector) -> ByteArray {
+            let state = AesEncryptionState(byteArray: block).apply(iv: iv)
+            
+            return (1...10)
+                .reduce(state.apply(key: keys[0])) { state, round in state.applyRound(key: keys[round], roundNumber: round) }
+                .bytes
         }
         
         private func decrypt(block: ByteArray, keys: [AesKey], iv: InitVector) -> ByteArray {

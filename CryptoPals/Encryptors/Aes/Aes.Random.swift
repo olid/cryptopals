@@ -10,8 +10,7 @@ import Foundation
 typealias AesRandomResult = (cypherText: ByteArray, mode: AesMode)
 
 extension Aes {
-    struct Random {
-        
+    struct Random {        
         static func randomEcbCbcEncrypt(plainText: ByteArray) -> AesRandomResult {
             let mode: AesMode = .random
             let key: ByteArray = .random(length: 16)

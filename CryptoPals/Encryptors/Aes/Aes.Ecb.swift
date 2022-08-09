@@ -11,22 +11,14 @@ import Foundation
 extension Aes {
     struct Ecb {
         func encrypt(input: ByteArray, key: ByteArray) -> ByteArray {
-            let paddedInput = PKCS7.pad(bytes: input)
             let keys = AesInitialKey(byteArray: key)
                 .buildKeys()
             
-            return paddedInput
+            return input
+                .padded()
                 .chunked(by: 16)
                 .map { block in encrypt(block: block, keys: keys) }
                 .flatMap { $0 }
-        }
-        
-        private func encrypt(block: ByteArray, keys: [AesKey]) -> ByteArray {
-            let state = AesEncryptionState(byteArray: block)
-            
-            return (1...10)
-                .reduce(state.apply(key: keys[0])) { state, round in state.applyRound(key: keys[round], roundNumber: round) }
-                .bytes
         }
         
         func decrypt(input: ByteArray, key: ByteArray) -> ByteArray {
@@ -38,6 +30,15 @@ extension Aes {
                 .chunked(by: 16)
                 .map { block in decrypt(block: block, keys: keys) }
                 .flatMap { $0 }
+                .unpadded()
+        }
+        
+        private func encrypt(block: ByteArray, keys: [AesKey]) -> ByteArray {
+            let state = AesEncryptionState(byteArray: block)
+            
+            return (1...10)
+                .reduce(state.apply(key: keys[0])) { state, round in state.applyRound(key: keys[round], roundNumber: round) }
+                .bytes
         }
         
         private func decrypt(block: ByteArray, keys: [AesKey]) -> ByteArray {
